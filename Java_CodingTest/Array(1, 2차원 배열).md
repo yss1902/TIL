@@ -53,8 +53,8 @@ public class Main_Sub {
 ```
 	public int solution(int n, int[] arr) {
 		int answer = 1, max = arr[0];
-		for (int i = 0; i < n; i++) {
-			if (arr[i] > max) {
+		for (int i = 1; i < n; i++) { //i(인덱스)는 1번부터(2번째사람부터), i는 n번째 사람까지, 한번씩돈다.
+			if (arr[i] > max) { //만약 i번째 사람이 max값보다 크면 answer에 1증가하고 max값을 arr[i]로 바꾼다.
 				answer++;
 				max = arr[i];
 			}
