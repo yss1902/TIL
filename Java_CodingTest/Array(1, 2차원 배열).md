@@ -1,6 +1,6 @@
 ## 1. 큰 수 출력하기
 
-
+## 2. 보이는 학생
 
 
 
@@ -20,7 +20,7 @@
 
 ```
 public class Main_Sub {
-	public ArrayList<Integer> solution(int n, int[] arr) {
+	public ArrayList<Integer> solution(int n, int[] arr) { //정답값이 배열로 여러개 나와야 하므로..
 		ArrayList<Integer> answer = new ArrayList<>();
 		answer.add(arr[0]);
 		for (int i = 1; i < n; i++) {
@@ -38,12 +38,41 @@ public class Main_Sub {
 		int n = sc.nextInt();
 		int[] arr = new int[n];
 		for (int i = 0; i < n; i++) { // 입력받는 n의 수만큼만 입력받아야 하므로 배열 arr에 들어가는 횟수를 정함
-			arr[i] = sc.nextInt();
+			arr[i] = sc.nextInt(); // 이후 arr에 값을 입력받는다
 		}
-		for (int x : T.solution(n, arr)) {
+		for (int x : T.solution(n, arr)) { // arr값이므로 x에 하나씩 할당한 다음 넘긴다. 공백 만들고.
 			System.out.print(x + " ");
 		}
 
+	}
+
+}
+```
+## 2. 보이는 학생
+
+```
+	public int solution(int n, int[] arr) {
+		int answer = 1, max = arr[0];
+		for (int i = 0; i < n; i++) {
+			if (arr[i] > max) {
+				answer++;
+				max = arr[i];
+			}
+
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+
+		Main_Sub T = new Main_Sub();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.print(T.solution(n, arr));
 	}
 
 }
