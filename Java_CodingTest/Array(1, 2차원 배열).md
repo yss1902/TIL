@@ -146,8 +146,8 @@ public class Main_Sub {
 	public int solution(int n) {
 		int answer = 0;
 		int[] ch = new int[n + 1]; //n번 인덱스까지 생성하기 위해 플1
-		for (int i = 2; i < n; i++) {
-			if (ch[i] == 0) {
+		for (int i = 2; i < n; i++) { //0과1는 소수의 대상이 아니므로 인덱스 2부터 시작, n까지(<)
+			if (ch[i] == 0) { //i가 0이
 				answer++;
 				for (int j = i; j < n; j = j + i)
 					ch[j] = 1;
