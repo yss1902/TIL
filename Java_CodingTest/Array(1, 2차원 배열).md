@@ -53,7 +53,7 @@ public class Main_Sub {
 
 ```
 	public int solution(int n, int[] arr) {
-		int answer = 1, max = arr[0];
+		int answer = 1, max = arr[0]; //첫번째 사람은 무조건 보이니까 1, 맥스값을 0번 인덱스로 우선 지정
 		for (int i = 1; i < n; i++) { //i(인덱스)는 1번부터(2번째사람부터), i는 n번째 사람까지, 한번씩돈다.
 			if (arr[i] > max) { //만약 i번째 사람이 max값보다 크면 answer에 1증가하고 max값을 arr[i]로 바꾼다.
 				answer++;
@@ -73,7 +73,7 @@ public class Main_Sub {
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
-		System.out.print(T.solution(n, arr));
+		System.out.print(T.solution(n, arr)); //답은 개수만 출력하는 거니까 이런 형식으로
 	}
 
 }
@@ -86,7 +86,7 @@ public class Main_Sub {
 			if (a[i] == b[i])
 				answer += "D";
 			else if (a[i] == 1 && b[i] == 3)
-				answer += "A";
+			 	answer += "A";
 			else if (a[i] == 2 && b[i] == 1)
 				answer += "A";
 			else if (a[i] == 3 && b[i] == 2)
@@ -110,7 +110,7 @@ public class Main_Sub {
 		for (int i = 0; i < n; i++) {
 			b[i] = sc.nextInt();
 		}
-		for (char x : T.solution(n, a, b).toCharArray())
+		for (char x : T.solution(n, a, b).toCharArray()) //스트링을 배열char화 시켜서 x에 대입시킨다.(정답이 세로로 나오게)
 			System.out.println(x);
 
 	}
@@ -119,8 +119,8 @@ public class Main_Sub {
 ```
 ## 4. 피보나치수열
 ```
-	public int[] solution(int n) {
-		int[] answer = new int[n];
+	public int[] solution(int n) { //배열로 받는다.
+		int[] answer = new int[n]; //답을 받을 answer배열을 만든다.
 		answer[0] = 1;
 		answer[1] = 1;
 		for (int i = 2; i < n; i++) {
