@@ -146,10 +146,10 @@ public class Main_Sub {
 	public int solution(int n) {
 		int answer = 0;
 		int[] ch = new int[n + 1]; //n번 인덱스까지 생성하기 위해 플1
-		for (int i = 2; i < n; i++) { //0과1는 소수의 대상이 아니므로 인덱스 2부터 시작, n까지(<)
-			if (ch[i] == 0) { //i가 0이
+		for (int i = 2; i <= n; i++) { //0과1는 소수의 대상이 아니므로 인덱스 2부터 시작, n까지(<=)
+			if (ch[i] == 0) { //i가 0이면 소수임, 그리고 i의 배수를 체크해야 함 
 				answer++;
-				for (int j = i; j < n; j = j + i)
+				for (int j = i; j < n; j = j + i) //그리고 i의 배수를 체크해야 함, j=j+i는 j는i의 배수로 돈다. 만약 j+2면 2의 배수) 
 					ch[j] = 1;
 			}
 		}
@@ -169,4 +169,47 @@ public class Main_Sub {
 ```
 ## 6. 뒤집은 소수
 ```
+public class Main_Sub {
+	public boolean isPrime(int num) {
+		if (num == 1)
+			return false;
+		for (int i = 2; i < num; i++) {
+			if (num % i == 0)
+				return false;
+		}
+		return true;
+	}
+
+	public ArrayList<Integer> solution(int n, int[] arr) {
+		ArrayList<Integer> answer = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			int tmp = arr[i];
+			int res = 0;
+			while (tmp > 0) {
+				int t = tmp % 10;
+				res = res * 10 + t;
+				tmp = tmp / 10;
+			}
+			if (isPrime(res))
+				answer.add(res);
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+
+		Main_Sub T = new Main_Sub();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		for (int x : T.solution(n, arr)) {
+			System.out.print(x + " ");
+
+		}
+
+	}
+}
 ```
