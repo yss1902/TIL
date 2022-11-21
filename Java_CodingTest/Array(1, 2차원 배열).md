@@ -206,7 +206,7 @@ public class Main_Sub {
 			arr[i] = sc.nextInt();
 		}
 		for (int x : T.solution(n, arr)) {
-			System.out.print(x + " ");
+			System.out.print(x + " "); 
 
 		}
 
