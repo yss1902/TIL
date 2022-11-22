@@ -1,24 +1,5 @@
 ## 1. 큰 수 출력하기
 
-## 2. 보이는 학생
-
-## 3. 가위바위보
-
-## 4. 피보나치수열
-
-## 5. 소수(에라토스테네스 체)
-
-## 6. 뒤집은 소수
-
-## 7. 점수계산
-
-## 8. 등수구하기
-
-
-# 정답
-
-## 1. 큰 수 출력하기
-
 ```
 public class Main_Sub {
 	public ArrayList<Integer> solution(int n, int[] arr) { //정답값이 배열로 여러개 나와야 하므로..
@@ -212,4 +193,80 @@ public class Main_Sub {
 
 	}
 }
+```
+## 7. 점수계산
+```
+	public int solution(int n, int[] arr) {
+		int answer = 0;
+		int cnt = 0;
+
+		for (int i = 0; i < n; i++) {
+			if (arr[i] == 1) {
+				cnt++;
+				answer += cnt;
+			} else
+				cnt = 0;
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+
+		Main_Sub T = new Main_Sub();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.print(T.solution(n, arr));
+
+	}
+}
+```
+## 8. 등수구하기
+```
+	public int[] solution(int n, int[] arr) {
+		int[] answer = new int[n];
+		for (int i = 0; i < n; i++) {
+			int cnt = 1;
+			for (int j = 0; j < n; j++) {
+				if (arr[j] > arr[i])
+					cnt++;
+			}
+			answer[i] = cnt;
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+
+		Main_Sub T = new Main_Sub();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		for (int x : T.solution(n, arr))
+			System.out.print(x + " ");
+
+	}
+}
+```
+
+## 9. 격자판 최대합
+```
+```
+
+## 10. 봉우리
+```
+```
+
+## 11. 임시반장 정하기
+```
+```
+
+## 12. 멘토링
+```
 ```
