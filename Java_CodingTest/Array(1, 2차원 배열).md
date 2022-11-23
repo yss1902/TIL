@@ -389,8 +389,8 @@ public class Main_Sub {
 ```
 	public int solution(int n, int m, int[][] arr) {
 		int answer = 0;
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= n; j++) {
+		for (int i = 1; i <= n; i++) { //i는 열인덱스(n) j
+			for (int j = 1; j <= n; j++) { //n은 학생수 m은 테스트(시험)개수를 의미 k는 테스트 번호
 				int cnt = 0;
 				for (int k = 0; k < m; k++) {
 					int pi = 0, pj = 0;
@@ -403,7 +403,7 @@ public class Main_Sub {
 					if (pi < pj)
 						cnt++;
 				}
-				if (cnt == m) {
+				if (cnt == m) { //cnt의 개수가 m이 되면 느그들은 짝이될수있다
 					answer++;
 				}
 			}
@@ -418,7 +418,7 @@ public class Main_Sub {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m = sc.nextInt();
-		int[][] arr = new int[m][n];
+		int[][] arr = new int[m][n]; //m은 행 n은 열
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				arr[i][j] = sc.nextInt();
