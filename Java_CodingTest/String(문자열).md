@@ -25,7 +25,7 @@
 }
 ```
 ## 2. 대소문자 변환
-``
+```
 	public String solution(String str) {
 		String answer = "";
 		for (char x : str.toCharArray()) {
@@ -47,9 +47,9 @@
 	}
 
 }
-``
+```
 ## 3. 문장 속 단어
-``
+```
 	public String solution(String str) {
 		String answer = "";
 		int m = Integer.MIN_VALUE;
@@ -74,13 +74,13 @@
 	}
 
 }
-``
+```
 ## 4. 단어 뒤집기
-``
-``
+```
+```
 ## 5. 특정 문자 뒤집기
-``
-``
+```
+```
 ## 6. 중복문자제거
-``
-``
+```
+```
