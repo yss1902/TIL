@@ -155,7 +155,7 @@ public class Main_Sub {
 		if (num == 1)
 			return false;
 		for (int i = 2; i < num; i++) {
-			if (num % i == 0)
+			if (num % i == 0) // 약수가 발견되면 소수가 아니다라는 뜻
 				return false;
 		}
 		return true;
@@ -166,9 +166,9 @@ public class Main_Sub {
 		for (int i = 0; i < n; i++) {
 			int tmp = arr[i];
 			int res = 0;
-			while (tmp > 0) {
-				int t = tmp % 10;
-				res = res * 10 + t;
+			while (tmp > 0) { //tmp가 0보다 클때까지만 와일문을 돈다
+				int t = tmp % 10; //0무시
+				res = res * 10 + t; //뒤집는다
 				tmp = tmp / 10;
 			}
 			if (isPrime(res))
