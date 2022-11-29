@@ -79,12 +79,12 @@
 ```
 	public int solution(int n, int k, int[] arr) {
 		int answer = 0, sum = 0;
-		for (int i = 0; i < k; i++)
+		for (int i = 0; i < k; i++) //우선 첫번째 sum값을 구한다
 			sum += arr[i];
 		answer = sum;
-		for (int i = k; i < n; i++) {
+		for (int i = k; i < n; i++) { //k부터 시작
 			sum += (arr[i] - arr[i - k]);
-			answer = Math.max(answer, sum);
+			answer = Math.max(answer, sum); //기본값과썸값에서큰값으로리턴
 		}
 
 		return answer;
