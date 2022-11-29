@@ -37,7 +37,7 @@
 ```
 ## 2. 공통원소구하기(two pointers algorithm)
 ```
-	public ArrayList<Integer> solution(int n, int m, int[] a, int[] b) {
+	public ArrayList<Integer> solution(int n, int m, int[] a, int[] b) { //교집합이용
 		ArrayList<Integer> answer = new ArrayList<>();
 		Arrays.sort(a);
 		Arrays.sort(b);
