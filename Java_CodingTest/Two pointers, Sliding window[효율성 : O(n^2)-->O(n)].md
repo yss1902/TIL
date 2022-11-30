@@ -104,3 +104,101 @@
 
 }
 ```
+## 4. 연속 부분수열(복합적 문제)
+```
+	public int solution(int n, int m, int[] arr) {
+		int answer = 0, sum = 0, lt = 0;
+		for (int rt = 0; rt < n; rt++) {
+			sum += arr[rt];
+			if (sum == m)
+				answer++;
+			while (sum >= m) {
+				sum -= arr[lt++];
+				if (sum == m)
+					answer++;
+			}
+
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.print(T.solution(n, m, arr));
+	}
+
+}
+```
+## 5. 연속된 자연수의 합(two pointers)
+```
+	public int solution(int n) {
+		int answer = 0, sum = 0, lt = 0;
+		int m = n / 2 + 1;
+		int[] arr = new int[m];
+		for (int i = 0; i < m; i++)
+			arr[i] = i + 1;
+		for (int rt = 0; rt < m; rt++) {
+			sum += arr[rt];
+			if (sum == n)
+				answer++;
+			while (sum >= n) {
+				sum -= arr[lt++];
+				if (sum == n)
+					answer++;
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+
+		System.out.print(T.solution(n));
+	}
+
+}
+```
+## 5. 연속된 자연수의 합(수학)
+```
+```
+## 6. 최대 길이 연속부분수열(복합적 문제)
+```
+	public int solution(int n, int k, int[] arr) {
+		int answer = 0, cnt = 0, lt = 0;
+		for (int rt = 0; rt < n; rt++) {
+			if (arr[rt] == 0)
+				cnt++;
+			while (cnt > k) {
+				if (arr[lt] == 0)
+					cnt--;
+				lt++;
+			}
+			answer = Math.max(answer, rt - lt + 1);
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		System.out.print(T.solution(n, k, arr));
+	}
+
+}
+```
