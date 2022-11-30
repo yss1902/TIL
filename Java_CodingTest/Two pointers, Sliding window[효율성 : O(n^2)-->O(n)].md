@@ -112,7 +112,7 @@
 			sum += arr[rt];
 			if (sum == m)
 				answer++;
-			while (sum >= m) {
+			while (sum >= m) { //sum값이m보다크거나작으면 왼쪽lt값을뺀다음에증가
 				sum -= arr[lt++];
 				if (sum == m)
 					answer++;
@@ -173,7 +173,7 @@
 ## 6. 최대 길이 연속부분수열(복합적 문제)
 ```
 	public int solution(int n, int k, int[] arr) {
-		int answer = 0, cnt = 0, lt = 0;
+		int answer = 0, cnt = 0, lt = 0; //cnt=0을1로바꾼횟수
 		for (int rt = 0; rt < n; rt++) {
 			if (arr[rt] == 0)
 				cnt++;
