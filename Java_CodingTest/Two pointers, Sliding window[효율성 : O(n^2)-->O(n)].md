@@ -169,6 +169,26 @@
 ```
 ## 5. 연속된 자연수의 합(수학)
 ```
+	public int solution(int n) {
+		int answer = 0, cnt = 1;
+		n--; //우선1을먼저뺌
+		while (n > 0) { //n이0보다높으면참
+			cnt++;
+			n = n - cnt; //여기서2를뺌
+			if (n % cnt == 0)
+				answer++;
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		System.out.print(T.solution(n));
+	}
+
+}
 ```
 ## 6. 최대 길이 연속부분수열(복합적 문제)
 ```
