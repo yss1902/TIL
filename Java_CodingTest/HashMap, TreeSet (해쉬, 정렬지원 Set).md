@@ -26,3 +26,96 @@
 	}
 }
 ```
+## 2. 아나그램
+```
+import java.util.*;
+class Main {	
+	public String solution(String s1, String s2){
+		String answer="YES";
+		HashMap<Character, Integer> map=new HashMap<>();
+		for(char x : s1.toCharArray()){
+			map.put(x, map.getOrDefault(x, 0)+1);
+		}
+		for(char x : s2.toCharArray()){
+			if(!map.containsKey(x) || map.get(x)==0) return "NO";
+			map.put(x, map.get(x)-1); 
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String a=kb.next();
+		String b=kb.next();
+		System.out.print(T.solution(a, b));
+	}
+}
+```
+## 3. 매출액의 종류(Hash, sliding window)
+```
+	public ArrayList<Integer> solution(int n, int k, int[] arr) {
+		ArrayList<Integer> answer = new ArrayList<>();
+		HashMap<Integer, Integer> HM = new HashMap<>();
+		for (int i = 0; i < k - 1; i++) { //하루적게해서세팅
+			HM.put(arr[i], HM.getOrDefault(arr[i], 0) + 1);
+		}
+		int lt = 0;
+		for (int rt = k - 1; rt < n; rt++) {
+			HM.put(arr[rt], HM.getOrDefault(arr[rt], 0) + 1);
+			answer.add(HM.size());
+			HM.put(arr[lt], HM.get(arr[lt]) - 1);
+			if (HM.get(arr[lt]) == 0)
+				HM.remove(arr[lt]);
+			lt++;
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int k = kb.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = kb.nextInt();
+		}
+		for (int x : T.solution(n, k, arr))
+			System.out.print(x + " ");
+	}
+}
+```
+## 4. 모든 아나그램 찾기(Hash, sliding window : 시간복잡도 O(n))
+```
+	public int solution(String a, String b) {
+		int answer = 0;
+		HashMap<Character, Integer> am = new HashMap<>();
+		HashMap<Character, Integer> bm = new HashMap<>();
+		for (char x : b.toCharArray())
+			bm.put(x, bm.getOrDefault(x, 0) + 1);
+		int L = b.length() - 1;
+		for (int i = 0; i < L; i++)
+			am.put(a.charAt(i), am.getOrDefault(a.charAt(i), 0) + 1);
+		int lt = 0;
+		for (int rt = L; rt < a.length(); rt++) {
+			am.put(a.charAt(rt), am.getOrDefault(a.charAt(rt), 0) + 1);
+			if (am.equals(bm))
+				answer++;
+			am.put(a.charAt(lt), am.get(a.charAt(lt)) - 1);
+			if (am.get(a.charAt(lt)) == 0)
+				am.remove(a.charAt(lt));
+			lt++;
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String a = kb.next();
+		String b = kb.next();
+		System.out.print(T.solution(a, b));
+	}
+}
+```
