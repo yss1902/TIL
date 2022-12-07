@@ -33,7 +33,7 @@
 		for (char x : str.toCharArray()) {
 			if (x == ')') {
 				while (stack.pop() != '(') //pop은제일위에있는것을꺼낸다
-					; //꺼내고여는가로가아니면참이니까while한다
+					; //여는가로가나올때까지pop한다
 			} else
 				stack.push(x);
 		}
@@ -99,8 +99,8 @@
 			if (Character.isDigit(x)) {
 				stack.push(x - 48);
 			} else {
-				int rt = stack.pop();
-				int lt = stack.pop();
+				int rt = stack.pop(); //첫번째로꺼낸것
+				int lt = stack.pop(); //두번째로꺼낸것
 				if (x == '+')
 					stack.push(lt + rt);
 				else if (x == '-')
@@ -132,11 +132,11 @@
 			if (str.charAt(i) == '(')
 				stack.push('(');
 			else {
-				stack.pop();
+				stack.pop(); //레이저닫는가로던막대기닫는가로던만나면빼고시작
 				if (str.charAt(i - 1) == '(')
 					cnt += stack.size();
 				else
-					cnt++;
+					cnt++; //그렇지않으면막대기의끝인거니까1추가
 			}
 		}
 		return cnt;
@@ -157,10 +157,10 @@
 		Queue<Integer> Q = new LinkedList<>();
 		for (int i = 1; i <= n; i++)
 			Q.offer(i); // i를전부넣는다
-		while (!Q.isEmpty()) { // 비어있을때 참
+		while (!Q.isEmpty()) { // 비어있지않을때까지
 			for (int i = 1; i < k; i++)
-				Q.offer(Q.poll()); //poll은꺼내고리턴받음,뒤에다다시offer
-			Q.poll();
+				Q.offer(Q.poll()); //poll(맨앞1개꺼냄)하고리턴도받고뒤로다시offer한다
+			Q.poll(); //그리고K를외친사람poll
 			if (Q.size() == 1)
 				answer = Q.poll(); //1개남으면답,Q가비었으면while문종료
 		}
