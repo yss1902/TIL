@@ -117,3 +117,91 @@
 	}
 }
 ```
+## 5. 중복확인
+```
+	public String solution(int n, int[] arr) {
+		String answer = "U";
+		Arrays.sort(arr);
+		for (int i = 0; i < n - 1; i++) {
+			if (arr[i] == arr[i + 1]) { //중복확인
+				answer = "D";
+				break;
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = kb.nextInt();
+		System.out.println(T.solution(n, arr));
+	}
+}
+```
+## 6. 장난꾸러기
+```
+class Main {
+	public ArrayList<Integer> solution(int n, int[] arr) {
+		ArrayList<Integer> answer = new ArrayList<>();
+		int[] tmp = arr.clone(); //깊은복사
+		Arrays.sort(tmp);
+		for (int i = 0; i < n; i++) {
+			if (arr[i] != tmp[i])
+				answer.add(i + 1); //번호(인덱스+1)
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = kb.nextInt();
+		for (int x : T.solution(n, arr))
+			System.out.print(x + " ");
+	}
+}
+```
+## 7. 좌표 정렬(compareTo)
+```
+class Point implements Comparable<Point> { //인터페이스구현클래스
+	public int x, y;
+
+	Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	public int compareTo(Point o) {
+		if (this.x == o.x)
+			return this.y - o.y;
+		else
+			return this.x - o.x;
+	}
+}
+
+class Main {
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		ArrayList<Point> arr = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			int x = kb.nextInt();
+			int y = kb.nextInt();
+			arr.add(new Point(x, y));
+		}
+		Collections.sort(arr);
+		for (Point o : arr)
+			System.out.println(o.x + " " + o.y);
+	}
+}
+```
+
+## 8. 이분검색
