@@ -224,18 +224,18 @@
 ```
 	public int[] solution(String s, char t) {
 		int[] answer = new int[s.length()];
-		int p = 1000;
-		for (int i = 0; i < s.length(); i++) {
+		int p = 1000; //문자열의길이보다넉넉하게
+		for (int i = 0; i < s.length(); i++) { //자기왼쪽에있는t로만계산한
 			if (s.charAt(i) == t) {
-				p = 0;
+				p = 0; //자기자신을만나면0으로
 				answer[i] = p;
 			} else {
 				p++;
 				answer[i] = p; // 왼쪽에있는e의for문
 			}
 		}
-		p = 1000;
-		for (int i = s.length() - 1; i >= 0; i--) { // 오른쪽for문과비교해작은것으로교체
+		p = 1000; //왼쪽으로for문돌고 오른쪽으로한번더돈다(왼오비교해서작은것으로)
+		for (int i = s.length() - 1; i >= 0; i--) { // 기존or문과비교해작은으로교체
 			if (s.charAt(i) == t) {
 				p = 0;
 				answer[i] = p;
