@@ -293,11 +293,11 @@
 ```
 	public String solution(int n, String s) {
 		String answer = "";
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { //0부터7번인덱스전까지뽑아낸
 			String tmp = s.substring(0, 7).replace('#', '1').replace('*', '0');
 			int num = Integer.parseInt(tmp, 2); //인자를 tmp로 넘어가고 2진수화
-			answer += (char) num;
-			s = s.substring(7);
+			answer += (char) num; //문자로저장한다(숫자X더해)
+			s = s.substring(7); //7개뒤부터바뀐다
 		}
 		return answer;
 	}
