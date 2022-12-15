@@ -108,11 +108,11 @@
 ```
 	public int solution(int n, int m, int[] arr) {
 		int answer = 0, sum = 0, lt = 0;
-		for (int rt = 0; rt < n; rt++) {
-			sum += arr[rt];
+		for (int rt = 0; rt < n; rt++) { //rt가진행
+			sum += arr[rt]; //우선 더하고
 			if (sum == m)
 				answer++;
-			while (sum >= m) { //sum값이m보다크거나작으면 왼쪽lt값을뺀다음에증가
+			while (sum >= m) { //sum값이m보다크거나같으면 왼쪽lt값을뺀다음에증가
 				sum -= arr[lt++];
 				if (sum == m)
 					answer++;
