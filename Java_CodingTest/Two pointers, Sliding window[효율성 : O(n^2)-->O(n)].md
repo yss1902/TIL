@@ -83,7 +83,7 @@
 			sum += arr[i];
 		answer = sum;
 		for (int i = k; i < n; i++) { //k부터 시작
-			sum += (arr[i] - arr[i - k]);
+			sum += (arr[i] - arr[i - k]); //i와 i뒤 2칸값을 빼는 것임
 			answer = Math.max(answer, sum); //기본값과썸값에서큰값으로리턴
 		}
 
