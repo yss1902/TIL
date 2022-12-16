@@ -75,11 +75,11 @@ class Main { //일반재귀
 }
 
 
-class Main { //메모라이제이션재귀
+class Main { //메모이제이션재귀
 	static int[] fibo;
 
-	public int DFS(int n) {
-		if (fibo[n] > 0)
+	public int DFS(int n) { //배열에저장하고리턴하는차이가있다
+		if (fibo[n] > 0) //(메모이제이션활성화:이미구해진값이라면그냥꺼내리턴)
 			return fibo[n];
 		if (n == 1)
 			return fibo[n] = 1;
@@ -92,7 +92,7 @@ class Main { //메모라이제이션재귀
 	public static void main(String[] args) {
 		Main T = new Main();
 		int n = 45;
-		fibo = new int[n + 1];
+		fibo = new int[n + 1]; //인덱스를 11개 만든다. (n이 10기준으로)
 		T.DFS(n);
 		for (int i = 1; i <= n; i++)
 			System.out.print(fibo[i] + " ");
