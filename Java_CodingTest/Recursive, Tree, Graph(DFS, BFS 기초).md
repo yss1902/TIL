@@ -1,9 +1,9 @@
 ## 1. 재귀함수(스택프레임)
 ```
 class Main {
-	public void DFS(int n) {
+	public void DFS(int n) { //여기서부터시작(3)
 		if (n == 0)
-			return;
+			return; //리턴하면종료.스텍D(0)은 10라인으로간다.
 		else {
 			DFS(n - 1);
 			System.out.print(n + " ");
