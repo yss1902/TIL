@@ -107,8 +107,8 @@
 ```
 	public String solution(String str) {
 		String answer;
-		char[] s = str.toCharArray();
-		int lt = 0, rt = str.length() - 1;
+		char[] s = str.toCharArray(); //배열을만든다.rt lt를쓰기위해
+		int lt = 0, rt = str.length() - 1; //0번인덱스부터(rt의마지막부분)
 		while (lt < rt) {
 			if (!Character.isAlphabetic(s[lt]))
 				lt++;
