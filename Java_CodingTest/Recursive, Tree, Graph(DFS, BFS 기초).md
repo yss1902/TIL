@@ -233,12 +233,12 @@ class Main {
 			int len = Q.size();
 			for (int i = 0; i < len; i++) {
 				int x = Q.poll();
-				for (int j = 0; j < 3; j++) {
+				for (int j = 0; j < 3; j++) { //j는 dis의값
 					int nx = x + dis[j]; //x의자신노드:nx
 					if (nx == e) {
 						return L + 1; //송아지를찾음(자식노드니까+1)
 					}
-					if (nx >= 1 && nx <= 10000 && ch[nx] == 0) {
+					if (nx >= 1 && nx <= 10000 && ch[nx] == 0) { //범위안에서방문을하지않았으면
 						ch[nx] = 1; //범위안에서방문안한노드찾기,방문했다.
 						Q.offer(nx);
 					}
