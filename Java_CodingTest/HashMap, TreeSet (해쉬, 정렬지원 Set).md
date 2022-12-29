@@ -38,7 +38,7 @@ class Main {
 		for(char x : s2.toCharArray()){
 			if(!map.containsKey(x) || map.get(x)==0) return "NO";
 			map.put(x, map.get(x)-1); //아래가아니라면 아나그램이맞으므로 이줄을실행
-		} //x라는키가존재안하고 or 키가존재한다면 -1감소시켜야하는데 개수가일치하지않음
+		} //x라는키가존재안하고 or 키가존재한다면 -1감소시켜야하는데0이면일치하지않는다는뜻
 		return answer;
 	}
 
