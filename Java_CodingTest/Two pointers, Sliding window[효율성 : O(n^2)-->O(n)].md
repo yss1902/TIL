@@ -197,13 +197,13 @@
 		for (int rt = 0; rt < n; rt++) {
 			if (arr[rt] == 0)
 				cnt++;
-			while (cnt > k) {
-				if (arr[lt] == 0)
-					cnt--;
-				lt++;
+			while (cnt > k) { //k(체인지가능횟수)보다크면안됨
+				if (arr[lt] == 0) //lt가가르키는곳이0이면
+					cnt--; //cnt감소시키고
+				lt++; //lt증가
 			}
 			answer = Math.max(answer, rt - lt + 1);
-		}
+		} //정답과 (연속되는 최대수열길이)에서의 큰 값
 		return answer;
 	}
 
