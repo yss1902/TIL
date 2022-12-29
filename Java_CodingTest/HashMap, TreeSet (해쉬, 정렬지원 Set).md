@@ -8,7 +8,7 @@
 		} // 없더라면 0을 리턴함.
 
 		int max = Integer.MIN_VALUE;
-		for (char key : map.keySet()) { //최대 밸류값의 키를 알아내기. 존재하는 키들을 탐색 set
+		for (char key : map.keySet()) { //존재하는모든key를탐색한
 			if (map.get(key) > max) { //키의 값을 가져옴 get
 				max = map.get(key);
 				answer = key;
