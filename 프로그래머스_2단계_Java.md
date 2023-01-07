@@ -195,4 +195,25 @@ class Solution {
 	}
 }
 ```
+다음 큰 숫자
+```
+import java.util.*;
 
+class Solution {
+	public int solution(int n) {
+		int answer = 0;
+		int n_cnt = Integer.bitCount(n); // 입력받은 n의 1 개수를 저장.
+		int b_cnt = 0; // 증가하는 n의 1 개수를 저장 할 변수.
+		while (true) {
+			n++; // n을 증가.
+			b_cnt = Integer.bitCount(n); // 증가된 n의 1 개수를 저장.
+			if (n_cnt == b_cnt) { // 일치하면, answer에 n을 담고 반복문을 빠져나온다.
+				answer = n;
+				break;
+			}
+		} //bitCount: 입력된 정수를 2진수로 변환한 뒤, 2진수에 포함된 1을 카운팅 해주는 메소드
+
+		return answer;
+	}
+}
+```
