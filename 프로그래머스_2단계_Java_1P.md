@@ -217,3 +217,72 @@ class Solution {
 	}
 }
 ```
+카펫
+```
+import java.util.*;
+
+class Solution {
+	public int[] solution(int brown, int yellow) {
+		int[] answer = new int[2];
+
+		int area = brown + yellow; // 전체 갯수
+		// area의 약수를 구해야 한다. (카펫 사이즈의 경우의 수)
+
+		// 행과 열의 갯수는 3이상이여야 합니다.
+		for (int i = 3; i <= area; i++) {
+			int col = i; // 열
+			int row = area / col; // 행
+
+			// 행의 갯수가 3이하이면 Pass합니다.
+			if (row < 3) {
+				continue;
+			}
+
+			// 행은 열보다 크거나 같아야 합니다.
+			if (row >= col) {
+				// 문제의 규칙에 의하면 row-2*col-2 = yellow 입니다.
+				if ((row - 2) * (col - 2) == yellow) {
+					answer[0] = row;
+					answer[1] = col;
+					return answer;
+				}
+			}
+
+		}
+		return answer;
+	}
+}
+```
+짝지어 제거하기
+```
+import java.util.*;
+
+class Solution {
+	public int solution(String s) {
+		int answer = -1;
+		char[] carr = s.toCharArray();
+		Stack<Character> stack = new Stack<>();
+		//문제에서 짝 이라는 단어는 stack을 의미하는 경우가 많은 것 같습니다.
+
+		for (int i = 0; i < carr.length; i++) {
+			char c = carr[i];
+			// 스택이 비어있다면 현재 문자는 반복될 일이 없으므로 push
+			if (stack.isEmpty())
+				stack.push(c);
+			// 스택이 비어있지 않다면
+			else {
+				// 스택의 top확인(peek) - 만약 현재 문자와 같다면 반복이므로 스택에서 pop하고 현재 문자도 스택에 넣지 않음
+				// 이렇게 되면 스택에는 반복이 발생하는 이전문자와 현재문자 모두 들어가지 않게 됨 (반복제거)
+				if (stack.peek() == c) {
+					stack.pop();
+					// 스택의 top이 현재 문자와 다르다면 반복이 아니므로 push
+				} else {
+					stack.push(c);
+				}
+			}
+		}
+		// 스택에 남아있는 값들은 반복되지 않는 값들임 즉, 비어있어다면 모두 짝지어 반복된 것
+		return stack.isEmpty() ? 1 : 0;
+	}
+}
+```
