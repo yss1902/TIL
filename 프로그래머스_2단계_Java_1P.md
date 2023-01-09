@@ -298,11 +298,15 @@ class Solution {
 
 		for (int i = 0; i < words.length; i++) {
 			if (list.contains(words[i])) { // 이전에 등장한 단어인경우
-				answer[0] = (i % n) + 1;
+				answer[0] = (i % n) + 1; 
 				answer[1] = (i / n) + 1;
 				flag = false;
 				break;
-			}
+			} /*0, 3, 6 을 3으로 나눴을경우 나머지는 모두 0이다. 따라서 여기에 +1을 해주면 첫번째 사람이 된다.
+			  따라서 규칙은 answer[0] = i%n + 1 이 된다.
+			  0, 1, 2를 3으로 나눴을경우 몫은 0이다. 따라서 여기에 +1을 해주면 첫번째 차례가 된다.
+			  따라서 규칙은 answer[1] = i/n + 1 이 된다.
+			  */
 
 			list.add(words[i]); // 현재 단어 리스트에 넣기
 
