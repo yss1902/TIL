@@ -358,11 +358,6 @@ class Solution {
 		return lcm1;
 	}
 
-	public static void main(String[] args) {
-		int[] arr = { 8, 2, 14, 6 };
-		System.out.print(solution(arr));
-	}
-
 	static int gcd(int a, int b) { // 유클리드호제법 (최대공약수)
 		while (b != 0) {
 			int r = a % b;
