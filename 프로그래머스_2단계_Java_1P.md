@@ -324,3 +324,56 @@ class Solution {
 	}
 }
 ```
+구명 보트
+```
+public class Solution {
+
+  public int solution(int[] people, int limit) {
+    int answer = 0;
+
+    Arrays.sort(people);
+
+    int min = 0;
+
+    for (int max = people.length - 1; min <= max; max--){
+      if (people[min] + people[max] <= limit) min++;
+      answer++;
+    }
+
+    return answer;
+}
+```
+N개의 최소공배수
+```
+import java.util.*;
+
+class Solution {
+	public static int solution(int[] arr) {
+		int lcm1 = arr[0];
+		for (int i = 0; i < arr.length; i++) {
+
+			lcm1 = lcm(lcm1, arr[i]);
+
+		}
+		return lcm1;
+	}
+
+	public static void main(String[] args) {
+		int[] arr = { 8, 2, 14, 6 };
+		System.out.print(solution(arr));
+	}
+
+	static int gcd(int a, int b) { // 유클리드호제법 (최대공약수)
+		while (b != 0) {
+			int r = a % b;
+			a = b;
+			b = r;
+		}
+		return a;
+	}
+
+	static int lcm(int a, int b) { // 최소공배수
+		return a * b / gcd(a, b);
+	}
+}
+```
