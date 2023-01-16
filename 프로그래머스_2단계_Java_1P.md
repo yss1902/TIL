@@ -416,23 +416,21 @@ public class Solution {
 ```
 import java.util.*;
 
-class Main {
-	static int[] dy;
+class Solution {
+	public long solution(int n) {
+		long answer = 0;
 
-	public int solution(int n) {
+		int[] dy = new int[n + 1];
+
 		dy[1] = 1;
 		dy[2] = 2;
-		for (int i = 3; i <= n + 1; i++)
+		for (int i = 3; i <= n; i++) {
 			dy[i] = dy[i - 2] + dy[i - 1];
-		return dy[n + 1]; //다리를 건너는 것은 끝까지 가야 하기 때문에 +1
-	}
+			answer = dy[n] % 1234567;
+		}
 
-	public static void main(String[] args) {
-		Main T = new Main();
-		Scanner kb = new Scanner(System.in);
-		int n = kb.nextInt();
-		dy = new int[n + 2];
-		System.out.print(T.solution(n));
+		return answer;
+
 	}
 }
 ```
