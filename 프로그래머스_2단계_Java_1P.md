@@ -392,4 +392,47 @@ class Solution
 ```
 점프와 순간 이동
 ```
+import java.util.*;
+
+public class Solution {
+	public int solution(int n) {
+		int ans = 0;
+		// 주어진 N이 0이 될 때까지 다음 연산을 반복
+		// top-down에서는 0보다 작아지는 경우가 없기 때문에 생각할 필요가 없었다.
+		while (n != 0) {
+			if (n % 2 == 0) { // n이 짝수이면
+				n /= 2; // n을 2로 나누고 다시 n에 대입한다.
+			} else {
+				n--; // n이 홀수면 n값에서 -1 감소시키고 ans를 증가
+				ans++;
+			}
+		}
+
+		return ans;
+	}
+}
+```
+멀리 뛰기
+```
+import java.util.*;
+
+class Main {
+	static int[] dy;
+
+	public int solution(int n) {
+		dy[1] = 1;
+		dy[2] = 2;
+		for (int i = 3; i <= n + 1; i++)
+			dy[i] = dy[i - 2] + dy[i - 1];
+		return dy[n + 1]; //다리를 건너는 것은 끝까지 가야 하기 때문에 +1
+	}
+
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		dy = new int[n + 2];
+		System.out.print(T.solution(n));
+	}
+}
 ```
