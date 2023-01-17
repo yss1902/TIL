@@ -386,7 +386,7 @@ class Solution
             a = (a+1)/2;
             b = (b+1)/2;
             answer++;
-        }
+        } //다음 라운드에 배정되는 숫자 = (현재 숫자 + 1) / 2 
 
         return answer;
     }
