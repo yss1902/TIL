@@ -2,7 +2,7 @@
 ```
 	public int[] solution(int n, int[] arr) {
 		for (int i = 0; i < n - 1; i++) { //마지막은바꿀필요없음
-			int idx = i; //i값으로초기화(인덱스0), 이중포문이용
+			int idx = i; //처음에i값으로초기화(인덱스0), 이중포문이용
 			for (int j = i + 1; j < n; j++) {
 				if (arr[j] < arr[idx])
 					idx = j;
