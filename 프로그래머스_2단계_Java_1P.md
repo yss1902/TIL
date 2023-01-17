@@ -125,11 +125,13 @@ class Solution {
 ```
 이진 변환 반복하기
 ```
+import java.util.*;
+
 class Solution {
 	public int[] solution(String s) {
-		int[] answer = new int[2];
+		int[] answer = new int[2]; // [0]n번의이진변환,[1]n개의0을제거
 
-		while (s.length() > 1) {
+		while (!s.equals("1")) { // s가1이될때까지
 
 			int cnt1 = 0;
 			for (int i = 0; i < s.length(); i++) {
