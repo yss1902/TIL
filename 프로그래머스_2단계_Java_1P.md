@@ -436,3 +436,28 @@ class Solution {
 	}
 }
 ```
+H-Index
+```
+import java.util.*;
+
+class Solution {
+	public int solution(int[] citations) {
+		int answer = 0;
+
+		Arrays.sort(citations);
+
+		for (int i = 0; i < citations.length; i++) {
+			int h = citations.length - i; // 인용된 논문의 수
+			if (citations[i] >= h) {
+				answer = h;
+			break;
+			}
+		} //citations[i]값이 h보다커서 조건문에만족하는순간의h값을 answer로반환
+
+		return answer;
+	}
+}
+```
+[1차] 캐시
+```
+```
