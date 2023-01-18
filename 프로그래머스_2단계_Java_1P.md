@@ -494,56 +494,35 @@ class Solution {
 ```
 괄호 회전하기
 ```
-import java.util.*;
+import java.util.Stack;
 
-class Solution {
-	public int solution(String s) {
+public class Solution {
+	static public int solution(String s) {
 		int answer = 0;
-		String new_s = s;
+
 		for (int i = 0; i < s.length(); i++) {
-			if (checkString(new_s))
+			Stack<Character> stack = new Stack<>();
+			String str = s.substring(i, s.length()) + s.substring(0, i);
+			for (int j = 0; j < str.length(); j++) {
+				char c = str.charAt(j);
+				if (stack.isEmpty()) {
+					stack.push(c);
+				} else if (c == ')' && stack.peek() == '(') {
+					stack.pop();
+				} else if (c == '}' && stack.peek() == '{') {
+					stack.pop();
+				} else if (c == ']' && stack.peek() == '[') {
+					stack.pop();
+				} else {
+					stack.push(c);
+				}
+			}
+			if (stack.isEmpty()) {
 				answer++;
-			new_s = new_s.substring(1, s.length()) + new_s.charAt(0);
+			}
 		}
 
 		return answer;
-	}
-
-	boolean checkString(String s) {
-		Stack<Character> stack = new Stack<>();
-		for (int i = 0; i < s.length(); i++) {
-			try {
-				switch (s.charAt(i)) {
-				case '[':
-					stack.add('[');
-					break;
-				case ']':
-					if (stack.peek() != '[')
-						return false;
-					stack.pop();
-					break;
-				case '{':
-					stack.add('{');
-					break;
-				case '}':
-					if (stack.peek() != '{')
-						return false;
-					stack.pop();
-					break;
-				case '(':
-					stack.add('(');
-					break;
-				case ')':
-					if (stack.peek() != '(')
-						return false;
-					stack.pop();
-					break;
-				}
-			} catch (Exception e) {
-				return false;
-			}
-		}
-		return stack.isEmpty() ? true : false;
 	}
 }
 ```
