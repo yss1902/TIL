@@ -140,12 +140,12 @@
 ```
 	public int solution(int n) {
 		int answer = 0, sum = 0, lt = 0;
-		int m = n / 2 + 1;
+		int m = n / 2 + 1; 
 		int[] arr = new int[m];
 		for (int i = 0; i < m; i++)
 			arr[i] = i + 1;
 		for (int rt = 0; rt < m; rt++) {
-			sum += arr[rt];
+			sum += arr[rt]; //lt부터rt를모두더한값
 			if (sum == n)
 				answer++;
 			while (sum >= n) {
@@ -166,15 +166,17 @@
 	}
 
 }
+/*n/2+1의 값만 연속된 자연수의 핪으로 존재한다. 이 이상은 값이 커져서 불가능하기때문. 이 숫자들을 배열에 넣고
+lt는 고정, rt가 오른쪽으로 가며 lt+rt를 한다. 값을 sum에 넣고 n과 같으면 정답. sum이 n보다 커지면 lt를 오른쪽으로 밀어준다*/
 ```
 ## 5. 연속된 자연수의 합(수학)
 ```
 	public int solution(int n) {
 		int answer = 0, cnt = 1;
-		n--; //우선1을먼저뺌
+		n--; //여기서우선1을빼고
 		while (n > 0) { //n이0보다높으면참
-			cnt++;
-			n = n - cnt; //여기서2를뺌
+			cnt++; //cnt는2가된다
+			n = n - cnt; //여기서2를뺌, cnt는2이므로
 			if (n % cnt == 0)
 				answer++;
 		}
@@ -189,6 +191,8 @@
 	}
 
 }
+/*n개의 숫자로 가능하나 보려면 n개의 숫자만큼 1, 2, 3... 을 뜯어서 할당한다. 뜯은만큼 int n의 값은 -한다.
+//여기서 int n을 n개의 숫자로 나눈 값의 나머지가 0이면(몫이 딱 떨어지면) 몫을 동등하게 분배가능(연속된 자연수)*/
 ```
 ## 6. 최대 길이 연속부분수열(복합적 문제)
 ```
