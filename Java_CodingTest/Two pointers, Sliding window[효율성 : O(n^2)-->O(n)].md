@@ -174,7 +174,7 @@ lt는 고정, rt가 오른쪽으로 가며 lt+rt를 한다. 값을 sum에 넣고
 	public int solution(int n) {
 		int answer = 0, cnt = 1;
 		n--; //여기서우선1을빼고
-		while (n > 0) { //n이0보다높으면참
+		while (n >= 0) { //n이0보다높으면참
 			cnt++; //cnt는2가된다
 			n = n - cnt; //여기서2를뺌, cnt는2이므로
 			if (n % cnt == 0)
