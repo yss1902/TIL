@@ -23,6 +23,7 @@ class Solution {
 		return answer;
 	}
 }
+//string으로 들어왔으므로 char형 변환이나 split이 필요없이 바로 charAt(i)를 이용
 ```
 최솟값 만들기
 ```
@@ -196,6 +197,7 @@ class Solution {
 		return answer[n];
 	}
 }
+//피보나치 풀이법은 배열과 DFS가 있다. 배열[]을 쓰는 이유는 sum을 이용해야 하기 때문
 ```
 다음 큰 숫자
 ```
@@ -335,7 +337,7 @@ public class Solution {
 
     Arrays.sort(people);
 
-    int min = 0;
+    int min = 0;	
 
     for (int max = people.length - 1; min <= max; max--){
       if (people[min] + people[max] <= limit) min++;
